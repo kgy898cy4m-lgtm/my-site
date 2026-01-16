@@ -1,34 +1,38 @@
 let cart = 0;
 
+/* Savatga qo‘shish */
 function add() {
   cart++;
   document.getElementById("count").innerText = cart;
 }
+
+/* Lokatsiya olish */
 function getLocation() {
+  const el = document.getElementById("location");
+
   if (!navigator.geolocation) {
-    document.getElementById("location").innerText =
-      "Brauzer lokatsiyani qo‘llab-quvvatlamaydi";
+    el.innerText = "Brauzer lokatsiyani qo‘llab-quvvatlamaydi";
     return;
   }
 
   navigator.geolocation.getCurrentPosition(
     (position) => {
-      const lat = position.coords.latitude;
-      const lon = position.coords.longitude;
+      const lat = position.coords.latitude.toFixed(5);
+      const lon = position.coords.longitude.toFixed(5);
 
-      document.getElementById("location").innerText =
-        📍 Latitude: ${lat}, Longitude: ${lon};
+      el.innerText = 📍 Latitude: ${lat}, Longitude: ${lon};
     },
     () => {
-      document.getElementById("location").innerText =
-        "❌ Lokatsiyaga ruxsat berilmadi";
+      el.innerText = "❌ Lokatsiyaga ruxsat berilmadi";
     }
   );
 }
+
+/* Burger menu */
 function openMenu() {
   document.getElementById("menu").classList.toggle("open");
 }
 
 function closeMenu() {
-  document.getElementById('menu').classList.remove('open');
+  document.getElementById("menu").classList.remove("open");
 }
