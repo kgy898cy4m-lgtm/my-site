@@ -14,10 +14,25 @@ p {
   font-size: 18px;
 }
 button {
-  padding: 10px 20px;
-  font-size:16px;
+  padding: 12px 30px;
+  font-size: 16px;
   cursor: pointer;
-  margin-top: 20px;
+  border: none;
+  border-radius: 8px;
+  background: orange;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+/* ustiga borganda */
+button:hover {
+  background: darkorange;
+  transform: scale(1.05);
+}
+
+/* bosilganda */
+button:active {
+  transform: scale(0.95);
 }
 #btn {
   display: block;
