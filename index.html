@@ -7,12 +7,11 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<!-- HEADER -->
-<header class="top">
-  <button class="burger" onclick="openMenu()">☰</button>
+
+<!-- SIDE MENU -->
 <div id="menu" class="side-menu">
   <div class="profile">
-    <img src="avatar.png">
+    <img src="https://via.placeholder.com/50">
     <div>
       <strong>Alim</strong><br>
       <small>+998 90 123 45 67</small>
@@ -25,79 +24,63 @@
   <a href="#">Chiqish</a>
 </div>
 
+<!-- HEADER -->
+<header class="top">
+  <button class="burger" onclick="openMenu()">☰</button>
+
   <div class="logo-center">
-    <div class="logo-text">
-      <span class="bee">BEE</span>SMART
-    </div>
-    <div class="subtitle">
-  A.Navoiy 7 <span class="arrow">›</span>
-</div>
+    <div class="logo-text"><span class="bee">BEE</span>SMART</div>
+    <div class="subtitle">A.Navoiy 7 <span class="arrow">›</span></div>
   </div>
 
-  <button class="bonus">
-    🎁 <span>0</span>
-  </button>
+  <button class="bonus">🎁 <span id="bonus">0</span></button>
 </header>
-
 
 <!-- SEARCH -->
 <div class="search">
-
   <input type="text" placeholder="Mahsulot qidiring">
 </div>
 
-<!-- CATEGORY -->
-
 <!-- BANNER -->
 <section class="banner">
-  <div class="banner-text">
-    <h1>BIRINCHI BUYURTMAGA</h1>
-    <h2>-30% CHEGIRMA</h2>
-    <button>Boshlash</button>
-  </div>
+  <h1>BIRINCHI BUYURTMAGA</h1>
+  <h2>-30% CHEGIRMA</h2>
+  <button>Boshlash</button>
 </section>
 
 <!-- SERVICES -->
 <section class="services">
-  <div class="service"> 1 <span>Server1</span></div>
-  <div class="service"> 2 <span>Server2</span></div>
-  <div class="service"> 3 <span>Server3</span></div>
-  <div class="service"> 4 <span>Server4</span></div>
+  <div class="service">1<br><span>Server1</span></div>
+  <div class="service">2<br><span>Server2</span></div>
+  <div class="service">3<br><span>Server3</span></div>
+  <div class="service">4<br><span>Server4</span></div>
 </section>
 
 <!-- PRODUCTS -->
 <section class="products">
 
   <div class="card">
-    <div class="fav">♡</div>
-    <img src="https://via.placeholder.com/120">
     <h3>Fairy</h3>
     <p class="price">24 000 so'm</p>
-    <button onclick="add()">+ Savatga →</button>
+    <button onclick="add()">+ Savatga</button>
   </div>
 
   <div class="card">
-    <div class="fav">♡</div>
-    <img src="https://via.placeholder.com/120">
     <h3>Tide</h3>
     <p class="price">93 000 so'm</p>
-    <button onclick="add()">+ Savatga →</button>
+    <button onclick="add()">+ Savatga</button>
   </div>
 
   <div class="card">
-    <div class="fav">♡</div>
-    <img src="https://via.placeholder.com/120">
     <h3>Pampers</h3>
     <p class="price">198 000 so'm</p>
-    <button onclick="add()">+ Savatga →</button>
+    <button onclick="add()">+ Savatga</button>
   </div>
 
   <div class="card">
-    <div class="fav">♡</div>
-    <img src="https://via.placeholder.com/120">
     <h3>Raffaello</h3>
     <p class="price">25 900 so'm</p>
-    <button onclick="add()">+ Savatga →</button>
+    <button onclick="add()">+ Savatga</button>
   </div>
 
 </section>
