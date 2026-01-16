@@ -1,3 +1,11 @@
+.burger {
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 2001;        /* MUHIM */
+  position: relative;  /* MUHIM */
+}
 let cart = 0;
 
 /* Savatga qo‘shish */
