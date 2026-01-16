@@ -2,18 +2,59 @@
 <html lang="uz">
 <head>
   <meta charset="UTF-8">
-  <title>Mening sayt</title>
+  <title>Beesmart Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <h1>Salom, GitHub Pages!</h1>
-  <p>Bu mening birinchi saytim.</p>
-  <a href="about.html">
-  <button id="btn">Keyingi sahifa</button>
-</a>
-  <p id="text">Matnn hali ozgarmadi</p>
-  <p id="count">0</p>
-  <script src="script.js"></script>
+<header class="header">
+  <div class="logo">BEESMART</div>
+  <button class="bonus">🎁 Bonuslar</button>
+</header>
+
+<div class="search">
+  <input type="text" placeholder="Mahsulot qidiring">
+</div>
+
+<section class="banner">
+  <h1>BIRINCHI BUYURTMAGA</h1>
+  <h2>-30% CHEGIRMA</h2>
+  <button class="start">Boshlash</button>
+</section>
+
+<section class="products">
+
+  <div class="card">
+    <img src="https://via.placeholder.com/150" alt="">
+    <h3>Fairy</h3>
+    <p class="price">24 000 so'm</p>
+    <button onclick="addToCart()">+ Savatga</button>
+  </div>
+
+  <div class="card">
+    <img src="https://via.placeholder.com/150" alt="">
+    <h3>Tide</h3>
+    <p class="price">93 000 so'm</p>
+    <button onclick="addToCart()">+ Savatga</button>
+  </div>
+
+  <div class="card">
+    <img src="https://via.placeholder.com/150" alt="">
+    <h3>Pampers</h3>
+    <p class="price">198 000 so'm</p>
+    <button onclick="addToCart()">+ Savatga</button>
+  </div>
+
+</section>
+
+<footer class="bottom">
+  <div>🏠 Home</div>
+  <div>❤️ Sevimli</div>
+  <div>🛒 Savat <span id="count">0</span></div>
+  <div>👤 Profil</div>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
