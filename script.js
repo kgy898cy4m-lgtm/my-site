@@ -6,6 +6,16 @@
   z-index: 2001;        /* MUHIM */
   position: relative;  /* MUHIM */
 }
+/* KURSOR BORGANDA */
+.burger:hover {
+  transform: scale(1.15) rotate(-5deg);
+}
+.burger:hover {
+  transform: scale(1.15) translateY(-2px);
+}
+.burger:active {
+  transform: scale(0.95);
+}
 let cart = 0;
 
 /* Savatga qo‘shish */
