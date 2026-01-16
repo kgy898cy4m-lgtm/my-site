@@ -218,3 +218,49 @@ img {
     grid-template-columns: 1fr;
   }
 }
+/* HEADER YANDEX GO STYLE */
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: #fff;
+}
+
+/* BURGER */
+.burger {
+  font-size: 24px;
+  background: none;
+  border: none;
+}
+
+/* CENTER LOGO */
+.logo-center {
+  text-align: center;
+  flex: 1;
+}
+
+.logo-text {
+  font-weight: 800;
+  font-size: 20px;
+}
+
+.logo-text .bee {
+  color: #f7a400;
+}
+
+.subtitle {
+  font-size: 13px;
+  color: #000;
+  opacity: 0.7;
+}
+
+/* BONUS */
+.bonus {
+  background: linear-gradient(135deg,#ff4e8a,#7b5cff);
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-weight: bold;
+}
