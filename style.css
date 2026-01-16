@@ -264,3 +264,18 @@ img {
   border-radius: 20px;
   font-weight: bold;
 }
+.logo-text {
+  font-weight: 1000;
+  font-size: 26px;
+  letter-spacing: -0.5px;
+}
+.subtitle {
+  font-size: 12px;       /* kichikroq */
+  color: #000;
+  opacity: 0.55;         /* yengil ko‘rinish */
+  margin-top: 2px;
+}
+.subtitle .arrow {
+  font-size: 14px;
+  margin-left: 4px;
+}
