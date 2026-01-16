@@ -1,40 +1,97 @@
 body {
+  margin: 0;
   font-family: Arial, sans-serif;
-  background: #f2f2f2;
-  padding: 40px;
+  background: #f6f6f6;
 }
 
-h1 {
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  background: white;
+}
+
+.logo {
+  font-weight: bold;
   color: orange;
-  text-align: center;
+  font-size: 20px;
 }
 
-p {
-  text-align: center;
-  font-size: 18px;
-}
-button {
-  padding: 12px 30px;
-  font-size: 16px;
-  cursor: pointer;
+.bonus {
+  background: #ffe0a3;
   border: none;
-  border-radius: 8px;
-  background: orange;
+  padding: 8px 12px;
+  border-radius: 20px;
+}
+
+.search {
+  padding: 10px;
+}
+
+.search input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+}
+
+.banner {
+  background: linear-gradient(135deg, #ff512f, #f09819);
   color: white;
-  transition: all 0.3s ease;
+  margin: 10px;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
 }
 
-/* ustiga borganda */
-button:hover {
-  background: darkorange;
-  transform: scale(1.05);
+.start {
+  background: white;
+  color: orange;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  margin-top: 10px;
 }
 
-/* bosilganda */
-button:active {
-  transform: scale(0.95);
+.products {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  padding: 10px;
 }
-#btn {
-  display: block;
-  margin: 30px auto;
+
+.card {
+  background: white;
+  padding: 10px;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.card img {
+  width: 100%;
+}
+
+.price {
+  color: red;
+  font-weight: bold;
+}
+
+.card button {
+  background: orange;
+  border: none;
+  color: white;
+  padding: 8px;
+  border-radius: 20px;
+  width: 100%;
+}
+
+.bottom {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: white;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+  border-top: 1px solid #ddd;
 }
