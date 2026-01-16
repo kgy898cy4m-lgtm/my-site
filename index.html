@@ -2,57 +2,94 @@
 <html lang="uz">
 <head>
   <meta charset="UTF-8">
-  <title>Beesmart Demo</title>
+  <title>BEESMART</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header class="header">
-  <div class="logo">BEESMART</div>
+<!-- HEADER -->
+<header class="top">
+  <div class="logo">
+    <span class="bee">BEE</span>SMART
+    <small>Eng aqlli tanlov</small>
+  </div>
   <button class="bonus">🎁 Bonuslar</button>
 </header>
 
+<!-- SEARCH -->
 <div class="search">
   <input type="text" placeholder="Mahsulot qidiring">
 </div>
 
+<!-- CATEGORY -->
+<div class="categories">
+  <button class="active">Barchasi</button>
+  <button>Asal</button>
+  <button>Shirinliklar</button>
+  <button>Smart tavsiyalar</button>
+</div>
+
+<!-- BANNER -->
 <section class="banner">
-  <h1>BIRINCHI BUYURTMAGA</h1>
-  <h2>-30% CHEGIRMA</h2>
-  <button class="start">Boshlash</button>
+  <div class="banner-text">
+    <h1>BIRINCHI BUYURTMAGA</h1>
+    <h2>-30% CHEGIRMA</h2>
+    <button>Boshlash</button>
+  </div>
 </section>
 
+<!-- SERVICES -->
+<section class="services">
+  <div class="service">🚕<span>Taxi</span></div>
+  <div class="service">🛵<span>Delivery</span></div>
+  <div class="service">🚌<span>Intercity</span></div>
+  <div class="service">✉️<span>Pochta</span></div>
+</section>
+
+<!-- PRODUCTS -->
 <section class="products">
 
   <div class="card">
-    <img src="https://via.placeholder.com/150" alt="">
+    <div class="fav">♡</div>
+    <img src="https://via.placeholder.com/120">
     <h3>Fairy</h3>
     <p class="price">24 000 so'm</p>
-    <button onclick="addToCart()">+ Savatga</button>
+    <button onclick="add()">+ Savatga →</button>
   </div>
 
   <div class="card">
-    <img src="https://via.placeholder.com/150" alt="">
+    <div class="fav">♡</div>
+    <img src="https://via.placeholder.com/120">
     <h3>Tide</h3>
     <p class="price">93 000 so'm</p>
-    <button onclick="addToCart()">+ Savatga</button>
+    <button onclick="add()">+ Savatga →</button>
   </div>
 
   <div class="card">
-    <img src="https://via.placeholder.com/150" alt="">
+    <div class="fav">♡</div>
+    <img src="https://via.placeholder.com/120">
     <h3>Pampers</h3>
     <p class="price">198 000 so'm</p>
-    <button onclick="addToCart()">+ Savatga</button>
+    <button onclick="add()">+ Savatga →</button>
+  </div>
+
+  <div class="card">
+    <div class="fav">♡</div>
+    <img src="https://via.placeholder.com/120">
+    <h3>Raffaello</h3>
+    <p class="price">25 900 so'm</p>
+    <button onclick="add()">+ Savatga →</button>
   </div>
 
 </section>
 
+<!-- BOTTOM NAV -->
 <footer class="bottom">
-  <div>🏠 Home</div>
-  <div>❤️ Sevimli</div>
-  <div>🛒 Savat <span id="count">0</span></div>
-  <div>👤 Profil</div>
+  <div class="active">🏠<span>Home</span></div>
+  <div>❤️<span>Sevimli</span></div>
+  <div>🛒<span>Savat</span><b id="count">0</b></div>
+  <div>👤<span>Profil</span></div>
 </footer>
 
 <script src="script.js"></script>
