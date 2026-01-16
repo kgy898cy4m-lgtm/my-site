@@ -1,74 +1,141 @@
-body {
-  margin: 0;
+* {
+  box-sizing: border-box;
   font-family: Arial, sans-serif;
-  background: #f6f6f6;
 }
 
-.header {
+body {
+  margin: 0;
+  background: #f4f4f4;
+}
+
+/* HEADER */
+.top {
   display: flex;
   justify-content: space-between;
-  padding: 15px;
+  padding: 12px 16px;
   background: white;
 }
 
 .logo {
   font-weight: bold;
-  color: orange;
-  font-size: 20px;
+  color: #f7a400;
+}
+
+.logo small {
+  display: block;
+  font-size: 11px;
+  color: #555;
 }
 
 .bonus {
-  background: #ffe0a3;
+  background: #ffe3a3;
   border: none;
-  padding: 8px 12px;
+  padding: 6px 12px;
   border-radius: 20px;
 }
 
+/* SEARCH */
 .search {
   padding: 10px;
 }
 
 .search input {
   width: 100%;
-  padding: 10px;
-  border-radius: 20px;
-  border: 1px solid #ddd;
+  padding: 12px;
+  border-radius: 25px;
+  border: none;
+  background: #eee;
 }
 
+/* CATEGORIES */
+.categories {
+  display: flex;
+  gap: 8px;
+  padding: 10px;
+  overflow-x: auto;
+}
+
+.categories button {
+  border: none;
+  padding: 8px 14px;
+  border-radius: 20px;
+  background: #eee;
+}
+
+.categories .active {
+  background: #ffd36a;
+}
+
+/* BANNER */
 .banner {
-  background: linear-gradient(135deg, #ff512f, #f09819);
-  color: white;
   margin: 10px;
   padding: 20px;
-  border-radius: 15px;
-  text-align: center;
+  border-radius: 16px;
+  background: linear-gradient(135deg,#ff4e00,#f9d423);
+  color: white;
 }
 
-.start {
-  background: white;
-  color: orange;
-  border: none;
+.banner h1 {
+  font-size: 18px;
+  margin: 0;
+}
+
+.banner h2 {
+  font-size: 26px;
+  margin: 6px 0;
+}
+
+.banner button {
+  margin-top: 10px;
   padding: 10px 20px;
   border-radius: 20px;
-  margin-top: 10px;
+  border: none;
 }
 
+/* SERVICES */
+.services {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 8px;
+  padding: 10px;
+}
+
+.service {
+  background: white;
+  border-radius: 14px;
+  padding: 12px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.service span {
+  display: block;
+  font-size: 12px;
+}
+
+/* PRODUCTS */
 .products {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2,1fr);
   gap: 10px;
   padding: 10px;
 }
 
 .card {
   background: white;
+  border-radius: 16px;
   padding: 10px;
-  border-radius: 15px;
-  text-align: center;
+  position: relative;
 }
 
 .card img {
   width: 100%;
+}
+
+.fav {
+  position: absolute;
+  right: 10px;
+  top: 10px;
 }
 
 .price {
@@ -77,14 +144,15 @@ body {
 }
 
 .card button {
-  background: orange;
-  border: none;
-  color: white;
-  padding: 8px;
-  border-radius: 20px;
   width: 100%;
+  padding: 8px;
+  background: #f7a400;
+  border: none;
+  border-radius: 20px;
+  color: white;
 }
 
+/* BOTTOM NAV */
 .bottom {
   position: fixed;
   bottom: 0;
@@ -93,5 +161,13 @@ body {
   display: flex;
   justify-content: space-around;
   padding: 10px 0;
-  border-top: 1px solid #ddd;
+}
+
+.bottom div {
+  text-align: center;
+  font-size: 12px;
+}
+
+.bottom .active {
+  color: #f7a400;
 }
