@@ -1,8 +1,15 @@
 body {
   font-family: Arial, sans-serif;
   background: #f2f2f2;
+  padding: 40px;
 }
+
 h1 {
-  color: #ff9800;
+  color: orange;
   text-align: center;
+}
+
+p {
+  text-align: center;
+  font-size: 18px;
 }
