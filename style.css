@@ -197,3 +197,22 @@ body {
 .bottom .active {
   color: #f7a400;
 }
+.products {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  padding: 10px;
+}
+
+@media (max-width: 420px) {
+  .products {
+    grid-template-columns: 1fr;
+  }
+}
+body {
+  padding-bottom: calc(90px + env(safe-area-inset-bottom));
+}
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
