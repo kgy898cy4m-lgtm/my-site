@@ -26,7 +26,7 @@ function getLocation() {
   );
 }
 function openMenu() {
-  document.getElementById('menu').classList.add('open');
+  document.getElementById("menu").classList.toggle("open");
 }
 
 function closeMenu() {
