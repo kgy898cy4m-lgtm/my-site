@@ -201,7 +201,11 @@ body {
   transform: scale(0.96);
   box-shadow: 0 3px 8px rgba(0,0,0,0.12);
 }
-
+/* ACTIVE SERVER */
+.service.active {
+  border: 2px solid #f7a400;
+  background: #fff9e6;
+}
 /* KICHIK IPHONE */
 @media (max-width: 420px) {
   .services {
