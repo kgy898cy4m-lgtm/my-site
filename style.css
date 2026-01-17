@@ -157,12 +157,48 @@ body {
 
 /* SERVICES */
 /* SERVICES – BIG BUTTON STYLE */
+/* SERVICES – BIG BUTTON STYLE */
 .services {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 12px;
   padding: 12px;
 }
+
+.service {
+  background: #fff;
+  border-radius: 18px;
+  padding: 18px 10px;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* pastdagi nom */
+.service span {
+  display: block;
+  margin-top: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #666;
+}
+
+/* bosilganda jonlanish */
+.service:active {
+  transform: scale(0.95);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+}
+
+/* iPhone kichik ekran */
+@media (max-width: 420px) {
+  .services {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 
 .service {
   background: #fff;
