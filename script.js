@@ -6,5 +6,11 @@ function add() {
 }
 
 function openMenu() {
-  document.getElementById("menu").classList.toggle("open");
+  document.getElementById("menu").classList.add("open");
+  document.getElementById("overlay").classList.add("show");
+}
+
+function closeMenu() {
+  document.getElementById("menu").classList.remove("open");
+  document.getElementById("overlay").classList.remove("show");
 }
