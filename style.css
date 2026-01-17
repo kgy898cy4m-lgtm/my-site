@@ -237,3 +237,72 @@ body {
 .side-menu {
   touch-action: pan-y;
 }
+/* PROFILE CARD */
+.profile-card {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  background: #fff;
+  padding: 16px;
+  border-radius: 16px;
+  margin-bottom: 16px;
+}
+
+.profile-card img {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+}
+
+.profile-info span {
+  font-size: 13px;
+  color: #777;
+}
+
+/* MENU CARD */
+.menu-card {
+  background: #fff;
+  border-radius: 16px;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+/* ITEM WITH SUBTEXT */
+.menu-item {
+  display: flex;
+  gap: 12px;
+  padding: 14px 16px;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+}
+
+.menu-item:last-child {
+  border-bottom: none;
+}
+
+.menu-item small {
+  font-size: 12px;
+  color: #777;
+}
+
+/* SIMPLE ROW */
+.menu-row {
+  padding: 16px;
+  font-size: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.menu-row:last-child {
+  border-bottom: none;
+}
+
+/* CTA BUTTON */
+.menu-cta {
+  background: #1f1f1f;
+  color: #fff;
+  border-radius: 18px;
+  padding: 18px;
+  text-align: center;
+  font-weight: bold;
+  margin: 20px 0;
+}
