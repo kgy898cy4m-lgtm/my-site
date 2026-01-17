@@ -206,6 +206,9 @@ body {
   border: 2px solid #f7a400;
   background: #fff9e6;
 }
+.service.active b {
+  color: #f7a400;
+}
 /* KICHIK IPHONE */
 @media (max-width: 420px) {
   .services {
