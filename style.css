@@ -163,25 +163,30 @@ body {
   gap: 12px;
   padding: 10px;
 }
-
-
 .service {
   background: #fff;
-  border-radius: 16px;
-  padding: 16px;
+  border-radius: 16px;          /* product bilan bir xil */
+  padding: 16px;                /* kattaroq */
   text-align: center;
-  font-size: 22px;
-  font-weight: 700;
+  font-weight: bold;
+  min-height: 140px;            /* MUHIM – kattaligi */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
 }
+.service b {
+  font-size: 28px;
+}
+
 
 /* pastdagi nom */
 .service span {
-  display: block;
-  margin-top: 6px;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: normal;
   opacity: 0.7;
 }
+
 
 /* bosilganda jonlanish */
 .service:active {
