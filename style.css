@@ -155,87 +155,59 @@ body {
   border: none;
 }
 
-/* SERVICES */
-/* SERVICES – BIG BUTTON STYLE */
+/* ================= SERVICES (PRODUCT SIZE) ================= */
+
 .services {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 12px;
   padding: 10px;
 }
+
 .service {
   background: #fff;
-  border-radius: 16px;          /* product bilan bir xil */
-  padding: 16px;                /* kattaroq */
-  text-align: center;
-  font-weight: bold;
-  min-height: 140px;            /* MUHIM – kattaligi */
+  border-radius: 16px;       /* product bilan bir xil */
+  padding: 20px;             /* KATTAROQ */
+  min-height: 150px;         /* productga teng balandlik */
+  
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 6px;
-}
-.service b {
-  font-size: 28px;
-}
+  align-items: center;
+  gap: 8px;
 
-
-/* pastdagi nom */
-.service span {
-  font-size: 14px;
-  font-weight: normal;
-  opacity: 0.7;
-}
-
-
-/* bosilganda jonlanish */
-.service:active {
-  transform: scale(0.95);
-  box-shadow: 0 3px 8px rgba(0,0,0,0.12);
-}
-
-/* iPhone kichik ekran */
-@media (max-width: 420px) {
-  .services {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-
-.service {
-  background: #fff;
-  border-radius: 18px;
-  padding: 18px 10px;
   text-align: center;
-  font-size: 22px;
   font-weight: 700;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
   cursor: pointer;
+
+  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-/* pastdagi nom */
-.service span {
-  display: block;
-  margin-top: 6px;
-  font-size: 14px;
-  font-weight: 500;
-  color: #666;
+/* SERVER RAQAMI */
+.service b {
+  font-size: 30px;
 }
 
-/* bosilganda jonlanish */
+/* SERVER NOMI */
+.service span {
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0.7;
+}
+
+/* BOSILGANDA */
 .service:active {
-  transform: scale(0.95);
+  transform: scale(0.96);
   box-shadow: 0 3px 8px rgba(0,0,0,0.12);
 }
 
-/* iPhone kichik ekran */
+/* KICHIK IPHONE */
 @media (max-width: 420px) {
   .services {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-
 
 /* PRODUCTS */
 .products {
