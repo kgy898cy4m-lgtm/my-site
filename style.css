@@ -344,27 +344,55 @@ body {
 }
 
 /* CTA BUTTON */
-.menu-cta {
-  background: #1f1f1f;
-  color: #fff;
-  border-radius: 18px;
-  padding: 18px;
-  text-align: center;
-  font-weight: bold;
-  margin: 20px 0;
-}
-.bottom div {
-  position: relative;
-  font-size: 22px;   /* ikonka kattaligi */
+/* ===== BOTTOM NAV ===== */
+.bottom {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #fff;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  height: 72px; /* MUHIM: baland */
+  padding-bottom: env(safe-area-inset-bottom);
+
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.08);
+  z-index: 100;
 }
 
-#count {
+.nav-item {
+  position: relative;
+  flex: 1;
+  text-align: center;
+}
+
+.nav-item .icon {
+  font-size: 28px;   /* 🔥 KATTA IKON */
+  display: inline-block;
+}
+
+/* savatdagi son */
+.nav-item b {
   position: absolute;
-  top: -4px;
-  right: -8px;
-  background: red;
+  top: 6px;
+  right: 30%;
+  background: #f7a400;
   color: #fff;
-  font-size: 10px;
-  padding: 2px 5px;
-  border-radius: 10px;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 12px;
+}
+
+/* active holat */
+.nav-item.active .icon {
+  color: #f7a400;
+}
+
+/* bosilganda jonlanish */
+.nav-item:active {
+  transform: scale(0.9);
+}
+body {
+  padding-bottom: calc(80px + env(safe-area-inset-bottom));
 }
