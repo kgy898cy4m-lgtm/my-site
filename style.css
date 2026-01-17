@@ -185,3 +185,21 @@ body {
     grid-template-columns: 1fr;
   }
 }
+#overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s;
+  z-index: 900;
+}
+
+#overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.side-menu {
+  touch-action: pan-y;
+}
