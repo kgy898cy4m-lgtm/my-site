@@ -24,23 +24,61 @@
 
 <!-- RIGHT SIDE MENU (FULL SCREEN) -->
 <div id="menu" class="side-menu right">
+
   <div class="menu-header">
     <button class="close-btn" onclick="closeMenu()">✕</button>
   </div>
 
-  <div class="profile">
+  <!-- PROFILE -->
+  <div class="profile-card">
     <img src="avatar.png">
-    <div>
-      <strong>Alim</strong><br>
-      <small>+998 90 123 45 67</small>
+    <div class="profile-info">
+      <strong>Alim</strong>
+      <span>+998 90 123 45 67</span>
     </div>
   </div>
 
-  <a href="#" onclick="closeMenu()">Profil</a>
-  <a href="#" onclick="closeMenu()">Buyurtmalar</a>
-  <a href="#" onclick="closeMenu()">Sozlamalar</a>
-  <a href="#" onclick="closeMenu()">Chiqish</a>
+  <!-- CARD -->
+  <div class="menu-card">
+    <div class="menu-item">
+      <span>🧰</span>
+      <div>
+        <b>Seyf</b>
+        <small>Sovg‘alar va bonuslar</small>
+      </div>
+    </div>
+
+    <div class="menu-item">
+      <span>💳</span>
+      <div>
+        <b>To‘lovlar</b>
+        <small>Naqd pul</small>
+      </div>
+    </div>
+  </div>
+
+  <!-- LIST -->
+  <div class="menu-card">
+    <div class="menu-row">📦 Buyurtmalar</div>
+    <div class="menu-row">📍 Manzillarim</div>
+    <div class="menu-row">🎧 Yordam</div>
+  </div>
+
+  <!-- CTA -->
+  <div class="menu-cta">
+    🚗 Yetkazib beruvchi bo‘lish
+  </div>
+
+  <!-- FOOTER -->
+  <div class="menu-card">
+    <div class="menu-row">🏢 Biznes akkaunt</div>
+    <div class="menu-row">🛡 Xavfsizlik</div>
+    <div class="menu-row">⚙️ Sozlamalar</div>
+    <div class="menu-row">ℹ️ Ma’lumot</div>
+  </div>
+
 </div>
+
 <!-- SEARCH -->
 <div class="search">
   <input type="text" placeholder="Mahsulot qidiring">
