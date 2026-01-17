@@ -58,40 +58,74 @@ body {
 }
 
 /* SIDE MENU */
-.side-menu {
+/* OVERLAY */
+#overlay {
   position: fixed;
-  top: 0;
-  left: -260px;
-  width: 260px;
-  height: 100%;
-  background: #fff;
-  padding: 20px;
-  box-shadow: 2px 0 10px rgba(0,0,0,0.2);
-  transition: left 0.3s;
-  z-index: 1000;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  opacity: 0;
   pointer-events: none;
+  transition: 0.3s;
+  z-index: 998;
 }
-.side-menu.open {
-  left: 0;
+
+#overlay.show {
+  opacity: 1;
   pointer-events: auto;
 }
 
+/* SIDE MENU – RIGHT, FULL SCREEN */
+.side-menu.right {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100%;
+  background: #f7f7f7;
+  transition: 0.35s ease;
+  z-index: 999;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.side-menu.right.open {
+  right: 0;
+}
+
+/* MENU HEADER */
+.menu-header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.close-btn {
+  font-size: 24px;
+  background: none;
+  border: none;
+}
+
+/* PROFILE */
 .profile {
   display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0;
 }
+
 .profile img {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
 }
 
+/* LINKS */
 .side-menu a {
   display: block;
-  padding: 10px 0;
+  padding: 16px 0;
+  font-size: 16px;
   color: #000;
   text-decoration: none;
+  border-bottom: 1px solid #eee;
 }
 
 /* SEARCH */
