@@ -8,10 +8,26 @@
 </head>
 <body>
 
-<!-- SIDE MENU -->
+<!-- HEADER -->
+<header class="top">
+  <button class="burger" onclick="openMenu()">☰</button>
+
+  <div class="logo-center">
+    <div class="logo-text"><span class="bee">BEE</span>SMART</div>
+    <div class="subtitle">A.Navoiy 7 <span class="arrow">›</span></div>
+  </div>
+
+  <button class="bonus">🎁 <span id="bonus">0</span></button>
+</header>
+  <!-- OVERLAY -->
 <div id="overlay" onclick="closeMenu()"></div>
 
-<div id="menu" class="side-menu">
+<!-- RIGHT SIDE MENU (FULL SCREEN) -->
+<div id="menu" class="side-menu right">
+  <div class="menu-header">
+    <button class="close-btn" onclick="closeMenu()">✕</button>
+  </div>
+
   <div class="profile">
     <img src="avatar.png">
     <div>
@@ -25,19 +41,6 @@
   <a href="#" onclick="closeMenu()">Sozlamalar</a>
   <a href="#" onclick="closeMenu()">Chiqish</a>
 </div>
-
-<!-- HEADER -->
-<header class="top">
-  <button class="burger" onclick="openMenu()">☰</button>
-
-  <div class="logo-center">
-    <div class="logo-text"><span class="bee">BEE</span>SMART</div>
-    <div class="subtitle">A.Navoiy 7 <span class="arrow">›</span></div>
-  </div>
-
-  <button class="bonus">🎁 <span id="bonus">0</span></button>
-</header>
-
 <!-- SEARCH -->
 <div class="search">
   <input type="text" placeholder="Mahsulot qidiring">
