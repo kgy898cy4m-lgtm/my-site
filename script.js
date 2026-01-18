@@ -25,47 +25,69 @@ servers.forEach(server => {
     server.classList.add("active");
   });
 });
-let recognition;
+const micBtn = document.getElementById("micBtn");
+
 let isRecording = false;
 
-function startVoice() {
-  if (!('webkitSpeechRecognition' in window)) {
-    alert("Brauzer ovoz qidirishni qo‘llab-quvvatlamaydi");
-    return;
-  }
+/* TELEFON (touch) */
+micBtn.addEventListener("touchstart", startRecording);
+micBtn.addEventListener("touchend", stopRecording);
 
-  if (!recognition) {
-    recognition = new webkitSpeechRecognition();
-    recognition.lang = 'uz-UZ';
-    recognition.continuous = false;
-    recognition.interimResults = false;
+/* BRAUZER (mouse) */
+micBtn.addEventListener("mousedown", startRecording);
+micBtn.addEventListener("mouseup", stopRecording);
+micBtn.addEventListener("mouseleave", stopRecording);
 
-    recognition.onresult = (event) => {
-      const text = event.results[0][0].transcript;
-      document.getElementById('searchInput').value = text;
-      filterProducts(text);
-    };
+function startRecording(e) {
+  e.preventDefault();
+  if (isRecording) return;
 
-    recognition.onend = () => {
-      stopRecording();
-    };
-  }
-
-  if (!isRecording) {
-    recognition.start();
-    startRecording();
-  }
-}
-
-function startRecording() {
   isRecording = true;
-  document.querySelector('.mic-btn').classList.add('recording');
+  micBtn.classList.add("active");
+
+  console.log("🎤 Yozish boshlandi");
 }
 
 function stopRecording() {
+  if (!isRecording) return;
+
   isRecording = false;
-  document.querySelector('.mic-btn').classList.remove('recording');
+  micBtn.classList.remove("active");
+
+  console.log("🛑 Yozish to‘xtadi");
 }
+const micBtn = document.getElementById("micBtn");
+
+let isRecording = false;
+
+/* TELEFON (touch) */
+micBtn.addEventListener("touchstart", startRecording);
+micBtn.addEventListener("touchend", stopRecording);
+
+/* BRAUZER (mouse) */
+micBtn.addEventListener("mousedown", startRecording);
+micBtn.addEventListener("mouseup", stopRecording);
+micBtn.addEventListener("mouseleave", stopRecording);
+
+function startRecording(e) {
+  e.preventDefault();
+  if (isRecording) return;
+
+  isRecording = true;
+  micBtn.classList.add("active");
+
+  console.log("🎤 Yozish boshlandi");
+}
+
+function stopRecording() {
+  if (!isRecording) return;
+
+  isRecording = false;
+  micBtn.classList.remove("active");
+
+  console.log("🛑 Yozish to‘xtadi");
+}
+
 function haptic() {
   if (window.Telegram?.WebApp?.HapticFeedback) {
     Telegram.WebApp.HapticFeedback.impactOccurred('medium');
