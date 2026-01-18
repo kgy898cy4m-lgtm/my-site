@@ -19,17 +19,17 @@
 
   <button class="bonus">🎁 <span id="bonus">0</span></button>
 </header>
-  <!-- OVERLAY -->
+
+<!-- OVERLAY -->
 <div id="overlay" onclick="closeMenu()"></div>
 
-<!-- RIGHT SIDE MENU (FULL SCREEN) -->
+<!-- RIGHT SIDE MENU -->
 <div id="menu" class="side-menu right">
 
   <div class="menu-header">
     <button class="close-btn" onclick="closeMenu()">✕</button>
   </div>
 
-  <!-- PROFILE -->
   <div class="profile-card">
     <img src="avatar.png">
     <div class="profile-info">
@@ -38,13 +38,12 @@
     </div>
   </div>
 
-  <!-- CARD -->
   <div class="menu-card">
     <div class="menu-item">
       <span>🧰</span>
       <div>
         <b>Seyf</b>
-        <small>Sovg‘alar va bonuslar</small>
+        <small>Bonuslar va sovg‘alar</small>
       </div>
     </div>
 
@@ -57,26 +56,20 @@
     </div>
   </div>
 
-  <!-- LIST -->
   <div class="menu-card">
     <div class="menu-row">📦 Buyurtmalar</div>
     <div class="menu-row">📍 Manzillarim</div>
     <div class="menu-row">🎧 Yordam</div>
   </div>
 
-  <!-- CTA -->
-  <div class="menu-cta">
-    🚗 Yetkazib beruvchi bo‘lish
-  </div>
+  <div class="menu-cta">🚗 Yetkazib beruvchi bo‘lish</div>
 
-  <!-- FOOTER -->
   <div class="menu-card">
     <div class="menu-row">🏢 Biznes akkaunt</div>
     <div class="menu-row">🛡 Xavfsizlik</div>
     <div class="menu-row">⚙️ Sozlamalar</div>
     <div class="menu-row">ℹ️ Ma’lumot</div>
   </div>
-
 </div>
 
 <!-- BANNER -->
@@ -88,36 +81,18 @@
 
 <!-- SERVICES -->
 <section class="services">
-  <div class="service">
-    <b>1</b>
-    <span>Server1</span>
-  </div>
-
-  <div class="service">
-    <b>2</b>
-    <span>Server2</span>
-  </div>
-
-  <div class="service">
-    <b>3</b>
-    <span>Server3</span>
-  </div>
-
-  <div class="service">
-    <b>4</b>
-    <span>Server4</span>
-  </div>
+  <div class="service active" data-server="1"><b>1</b><span>Server1</span></div>
+  <div class="service" data-server="2"><b>2</b><span>Server2</span></div>
+  <div class="service" data-server="3"><b>3</b><span>Server3</span></div>
+  <div class="service" data-server="4"><b>4</b><span>Server4</span></div>
 </section>
+
 <!-- SEARCH -->
 <div class="search">
   <div class="search-row">
-    <input
-      type="text"
-      id="searchInput"
-      placeholder="Mahsulot qidiring"
-    >
+    <input type="text" id="searchInput" placeholder="Mahsulot qidiring">
 
-    <button class="mic-btn" onclick="startVoice()" aria-label="Voice search">
+    <button id="micBtn" class="mic-btn" aria-label="Voice search">
       <svg viewBox="0 0 24 24" class="mic-icon">
         <path d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3zm5-3a1 1 0 0 0-2 0 3 3 0 0 1-6 0 1 1 0 0 0-2 0 5 5 0 0 0 4 4.9V19h-2a1 1 0 0 0 0 2h6a1 1 0 0 0 0-2h-2v-3.1A5 5 0 0 0 17 11z"/>
       </svg>
@@ -125,131 +100,119 @@
   </div>
 </div>
 
-
 <!-- PRODUCTS -->
 <section class="products">
 
   <!-- SERVER 1 -->
-  <div class="card" data-server="1">
-  <div class="card" data-name="fairy">
+  <div class="card" data-server="1" data-name="fairy">
     <h3>Fairy</h3>
     <p class="price">24 000 so'm</p>
-    <button>+ Savatga</button>
+    <button onclick="add()">+ Savatga</button>
   </div>
 
-  <div class="card" data-server="1">
+  <div class="card" data-server="1" data-name="fairy lemon">
     <h3>Fairy Lemon</h3>
     <p class="price">26 000 so'm</p>
-    <button>+ Savatga</button>
+    <button onclick="add()">+ Savatga</button>
   </div>
 
-  <div class="card" data-server="1">
+  <div class="card" data-server="1" data-name="asal 500g">
     <h3>Asal 500g</h3>
     <p class="price">45 000 so'm</p>
-    <button>+ Savatga</button>
+    <button onclick="add()">+ Savatga</button>
   </div>
 
-  <div class="card" data-server="1">
+  <div class="card" data-server="1" data-name="asal 1kg">
     <h3>Asal 1kg</h3>
     <p class="price">78 000 so'm</p>
-    <button>+ Savatga</button>
+    <button onclick="add()">+ Savatga</button>
   </div>
 
   <!-- SERVER 2 -->
-  <div class="card" data-server="2">
+  <div class="card" data-server="2" data-name="tide">
     <h3>Tide</h3>
     <p class="price">93 000 so'm</p>
-    <button>+ Savatga</button>
+    <button onclick="add()">+ Savatga</button>
   </div>
 
-  <div class="card" data-server="2">
+  <div class="card" data-server="2" data-name="tide color">
     <h3>Tide Color</h3>
     <p class="price">97 000 so'm</p>
-    <button>+ Savatga</button>
+    <button onclick="add()">+ Savatga</button>
   </div>
 
-  <div class="card" data-server="2">
+  <div class="card" data-server="2" data-name="ariel">
     <h3>Ariel</h3>
     <p class="price">89 000 so'm</p>
-    <button>+ Savatga</button>
+    <button onclick="add()">+ Savatga</button>
   </div>
-
-  <div class="card" data-server="2">
+<div class="card" data-server="2" data-name="ariel pods">
     <h3>Ariel Pods</h3>
     <p class="price">110 000 so'm</p>
-    <button>+ Savatga</button>
+    <button onclick="add()">+ Savatga</button>
   </div>
 
   <!-- SERVER 3 -->
-  <div class="card" data-server="3">
+  <div class="card" data-server="3" data-name="pampers s">
     <h3>Pampers S</h3>
     <p class="price">198 000 so'm</p>
-    <button>+ Savatga</button>
+    <button onclick="add()">+ Savatga</button>
   </div>
 
-  <div class="card" data-server="3">
+  <div class="card" data-server="3" data-name="pampers m">
     <h3>Pampers M</h3>
     <p class="price">215 000 so'm</p>
-    <button>+ Savatga</button>
+    <button onclick="add()">+ Savatga</button>
   </div>
 
-  <div class="card" data-server="3">
+  <div class="card" data-server="3" data-name="pampers l">
     <h3>Pampers L</h3>
     <p class="price">232 000 so'm</p>
-    <button>+ Savatga</button>
+    <button onclick="add()">+ Savatga</button>
   </div>
 
-  <div class="card" data-server="3">
+  <div class="card" data-server="3" data-name="pampers xl">
     <h3>Pampers XL</h3>
     <p class="price">249 000 so'm</p>
-    <button>+ Savatga</button>
+    <button onclick="add()">+ Savatga</button>
   </div>
 
   <!-- SERVER 4 -->
-  <div class="card" data-server="4">
+  <div class="card" data-server="4" data-name="raffaello">
     <h3>Raffaello</h3>
     <p class="price">25 900 so'm</p>
-    <button>+ Savatga</button>
+    <button onclick="add()">+ Savatga</button>
   </div>
 
-  <div class="card" data-server="4">
+  <div class="card" data-server="4" data-name="ferrero rocher">
     <h3>Ferrero Rocher</h3>
     <p class="price">39 000 so'm</p>
-    <button>+ Savatga</button>
+    <button onclick="add()">+ Savatga</button>
   </div>
 
-  <div class="card" data-server="4">
+  <div class="card" data-server="4" data-name="merci">
     <h3>Merci</h3>
     <p class="price">52 000 so'm</p>
-    <button>+ Savatga</button>
+    <button onclick="add()">+ Savatga</button>
   </div>
 
-  <div class="card" data-server="4">
+  <div class="card" data-server="4" data-name="milka">
     <h3>Milka</h3>
     <p class="price">31 000 so'm</p>
-    <button>+ Savatga</button>
+    <button onclick="add()">+ Savatga</button>
   </div>
 
 </section>
 
-
+<!-- BOTTOM NAV -->
 <footer class="bottom">
-  <div class="nav-item active">
-    <span class="icon">🏠</span>
-  </div>
-
-  <div class="nav-item">
-    <span class="icon">❤️</span>
-  </div>
-
+  <div class="nav-item active"><span class="icon">🏠</span></div>
+  <div class="nav-item"><span class="icon">❤️</span></div>
   <div class="nav-item">
     <span class="icon">🛒</span>
     <b id="count">0</b>
   </div>
-
-  <div class="nav-item">
-    <span class="icon">👤</span>
-  </div>
+  <div class="nav-item"><span class="icon">👤</span></div>
 </footer>
 
 <script src="script.js"></script>
