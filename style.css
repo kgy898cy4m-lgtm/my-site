@@ -499,3 +499,29 @@ one;
   0% { transform: scale(1); opacity: 1; }
   100% { transform: scale(1.6); opacity: 0; }
 }
+.chat {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* AUDIO MESSAGE */
+.voice-message {
+  align-self: flex-end;
+  background: #dcf8c6;
+  border-radius: 16px;
+  padding: 10px 12px;
+  max-width: 80%;
+}
+
+.voice-message audio {
+  width: 100%;
+  margin-bottom: 6px;
+}
+
+.voice-text {
+  font-size: 13px;
+  color: #333;
+  opacity: 0.8;
+}
