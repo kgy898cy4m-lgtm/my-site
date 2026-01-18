@@ -397,32 +397,46 @@ body {
   padding-bottom: calc(80px + env(safe-area-inset-bottom));
 }
 /* SEARCH + MIC */
-.search-box {
+.search-row {
   display: flex;
   align-items: center;
-  background: #eee;
-  border-radius: 25px;
-  padding: 6px 10px;
+  gap: 10px;
 }
 
-.mic {
+/* INPUT */
+.search-row input {
+  flex: 1;
+  padding: 14px 18px;
+  border-radius: 25px;
   border: none;
-  background: none;
-  padding: 6px;
-  cursor: pointer;
+  background: #f0f0f0;
+  font-size: 15px;
+}
+
+/* MICROPHONE BUTTON */
+.mic-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease;
 }
 
+/* ICON */
 .mic-icon {
-  width: 22px;
-  height: 22px;
-  fill: #8e8e93; /* Telegram iOS rang */
-  transition: transform 0.15s ease, fill 0.15s ease;
+  width: 24px;
+  height: 24px;
+  fill: #000;
 }
 
-.mic:active .mic-icon {
-  transform: scale(0.85);
-  fill: #007aff; /* Telegram ko‘k */
+/* BOSILGANDA — Telegram kabi */
+.mic-btn:active {
+  transform: scale(0.9);
+  background: #e5e5ea;
 }
