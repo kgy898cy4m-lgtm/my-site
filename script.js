@@ -25,67 +25,89 @@ servers.forEach(server => {
     server.classList.add("active");
   });
 });
-const micBtn = document.getElementById("micBtn");
-
 let isRecording = false;
+let recordSeconds = 0;
+let timerInterval = null;
+let mediaRecorder;
+let audioChunks = [];
 
-/* TELEFON (touch) */
-micBtn.addEventListener("touchstart", startRecording);
+/* ELEMENTS */
+const micBtn = document.getElementById("micBtn");
+const recordBar = document.getElementById("recordBar");
+const recordTime = document.getElementById("recordTime");
+const chat = document.getElementById("chat");
+
+/* EVENTS */
+micBtn.addEventListener("touchstart", startRecording, { passive: false });
 micBtn.addEventListener("touchend", stopRecording);
-
-/* BRAUZER (mouse) */
 micBtn.addEventListener("mousedown", startRecording);
 micBtn.addEventListener("mouseup", stopRecording);
 micBtn.addEventListener("mouseleave", stopRecording);
 
-function startRecording(e) {
+/* START */
+async function startRecording(e) {
   e.preventDefault();
   if (isRecording) return;
 
   isRecording = true;
+  recordSeconds = 0;
+  recordTime.textContent = "0:00";
+  recordBar.classList.add("show");
   micBtn.classList.add("active");
 
-  console.log("🎤 Yozish boshlandi");
+  /* TIMER */
+  timerInterval = setInterval(() => {
+    recordSeconds++;
+    const min = Math.floor(recordSeconds / 60);
+    const sec = recordSeconds % 60;
+    recordTime.textContent = `${min}:${sec < 10 ? "0" + sec : sec}`;
+  }, 1000);
+
+  /* AUDIO RECORD */
+  const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+  mediaRecorder = new MediaRecorder(stream);
+  audioChunks = [];
+
+  mediaRecorder.ondataavailable = e => audioChunks.push(e.data);
+  mediaRecorder.start();
+
+  startSpeech(); // 🧠 textga aylantirish
 }
 
+/* STOP */
 function stopRecording() {
   if (!isRecording) return;
 
   isRecording = false;
+  clearInterval(timerInterval);
+  timerInterval = null;
+
+  recordBar.classList.remove("show");
+  recordTime.textContent = "0:00";
   micBtn.classList.remove("active");
 
-  console.log("🛑 Yozish to‘xtadi");
-}
-const micBtn = document.getElementById("micBtn");
+  mediaRecorder.stop();
 
-let isRecording = false;
+  mediaRecorder.onstop = () => {
+    const audioBlob = new Blob(audioChunks, { type: "audio/webm" });
+    const audioUrl = URL.createObjectURL(audioBlob);
 
-/* TELEFON (touch) */
-micBtn.addEventListener("touchstart", startRecording);
-micBtn.addEventListener("touchend", stopRecording);
-
-/* BRAUZER (mouse) */
-micBtn.addEventListener("mousedown", startRecording);
-micBtn.addEventListener("mouseup", stopRecording);
-micBtn.addEventListener("mouseleave", stopRecording);
-
-function startRecording(e) {
-  e.preventDefault();
-  if (isRecording) return;
-
-  isRecording = true;
-  micBtn.classList.add("active");
-
-  console.log("🎤 Yozish boshlandi");
+    showVoiceMessage(audioUrl, lastSpeechText);
+  };
 }
 
-function stopRecording() {
-  if (!isRecording) return;
+/* CHAT MESSAGE */
+function showVoiceMessage(audioUrl, text) {
+  const msg = document.createElement("div");
+  msg.className = "voice-message";
 
-  isRecording = false;
-  micBtn.classList.remove("active");
+  msg.innerHTML = `
+    <audio controls src="${audioUrl}"></audio>
+    <div class="voice-text">${text || "🎤 Ovozli xabar"}</div>
+  `;
 
-  console.log("🛑 Yozish to‘xtadi");
+  chat.appendChild(msg);
+  chat.scrollTop = chat.scrollHeight;
 }
 
 function haptic() {
