@@ -9,7 +9,7 @@ function add() {
 }
 
 /*****************
- * MICROPHONE + TIMER
+ * MICROPHONE
  *****************/
 const micBtn = document.getElementById("micBtn");
 const recTimer = document.getElementById("recTimer");
@@ -23,7 +23,7 @@ let mediaRecorder = null;
 let audioChunks = [];
 let speechText = "";
 
-/* EVENTLAR */
+/* EVENTS */
 micBtn.addEventListener("mousedown", startRecording);
 micBtn.addEventListener("mouseup", stopRecording);
 micBtn.addEventListener("mouseleave", stopRecording);
@@ -32,7 +32,7 @@ micBtn.addEventListener("touchstart", startRecording, { passive: false });
 micBtn.addEventListener("touchend", stopRecording);
 
 /*****************
- * START RECORD
+ * START
  *****************/
 async function startRecording(e) {
   e.preventDefault();
@@ -41,17 +41,14 @@ async function startRecording(e) {
   isRecording = true;
   seconds = 0;
   recordTime.innerText = "0:00";
-
   recTimer.classList.add("active");
   micBtn.classList.add("recording");
 
-  // TIMER
   timer = setInterval(() => {
     seconds++;
     recordTime.innerText = 0:${seconds < 10 ? "0" + seconds : seconds};
   }, 1000);
 
-  // AUDIO
   const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
   mediaRecorder = new MediaRecorder(stream);
   audioChunks = [];
@@ -59,20 +56,19 @@ async function startRecording(e) {
   mediaRecorder.ondataavailable = e => audioChunks.push(e.data);
   mediaRecorder.start();
 
-  // SPEECH → TEXT
   const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
   if (SR) {
-    const recog = new SR();
-    recog.lang = "uz-UZ";
-    recog.onresult = e => {
+    const rec = new SR();
+    rec.lang = "uz-UZ";
+    rec.onresult = e => {
       speechText = e.results[0][0].transcript.toLowerCase();
     };
-    recog.start();
+    rec.start();
   }
 }
 
 /*****************
- * STOP RECORD
+ * STOP
  *****************/
 function stopRecording() {
   if (!isRecording) return;
@@ -93,15 +89,13 @@ function stopRecording() {
 
     showVoiceMessage(url, speechText);
 
-    // OVOZ BUYRUQLARI
     if (speechText.includes("fairy")) add();
-
     speechText = "";
   };
 }
 
 /*****************
- * CHATGA QO‘SHISH
+ * CHAT
  *****************/
 function showVoiceMessage(audioUrl, text) {
   if (!chat) return;
@@ -110,8 +104,7 @@ function showVoiceMessage(audioUrl, text) {
   msg.className = "voice-message";
   msg.innerHTML = `
     <audio controls src="${audioUrl}"></audio>
-    <div class="voice-text">${text || "🎤 Ovozli xabar"}</div>
+    <div>${text || "🎤 Ovozli xabar"}</div>
   `;
   chat.appendChild(msg);
-  chat.scrollTop = chat.scrollHeight;
 }
