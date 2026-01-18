@@ -396,3 +396,33 @@ body {
 body {
   padding-bottom: calc(80px + env(safe-area-inset-bottom));
 }
+/* SEARCH + MIC */
+.search-box {
+  display: flex;
+  align-items: center;
+  background: #eee;
+  border-radius: 25px;
+  padding: 6px 10px;
+}
+
+.search-box input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 10px;
+  font-size: 14px;
+  outline: none;
+}
+
+.mic {
+  border: none;
+  background: none;
+  font-size: 22px;
+  cursor: pointer;
+  padding: 6px;
+  transition: transform 0.15s ease;
+}
+
+.mic:active {
+  transform: scale(0.85);
+}
