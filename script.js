@@ -120,3 +120,51 @@ function haptic() {
     Telegram.WebApp.HapticFeedback.impactOccurred('medium');
   }
 }
+const micBtn = document.getElementById("micBtn");
+const timerBox = document.getElementById("recTimer");
+const timeText = document.getElementById("time");
+
+let isRecording = false;
+let seconds = 0;
+let timerInterval = null;
+
+/* START */
+function startRecording(e) {
+  e.preventDefault();
+  if (isRecording) return;
+
+  isRecording = true;
+  seconds = 0;
+  timeText.textContent = "0:00";
+  timerBox.classList.add("active");
+
+  timerInterval = setInterval(() => {
+    seconds++;
+    timeText.textContent = 0:${seconds < 10 ? "0" + seconds : seconds};
+  }, 1000);
+
+  console.log("🎤 Recording started");
+}
+
+/* STOP */
+function stopRecording() {
+  if (!isRecording) return;
+
+  isRecording = false;
+  clearInterval(timerInterval);
+  timerInterval = null;
+
+  timerBox.classList.remove("active");
+  timeText.textContent = "0:00";
+
+  console.log("🛑 Recording stopped");
+}
+
+/* TOUCH (mobile) */
+micBtn.addEventListener("touchstart", startRecording);
+micBtn.addEventListener("touchend", stopRecording);
+
+/* MOUSE (desktop) */
+micBtn.addEventListener("mousedown", startRecording);
+micBtn.addEventListener("mouseup", stopRecording);
+micBtn.addEventListener("mouseleave", stopRecording);
