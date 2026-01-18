@@ -168,3 +168,60 @@ micBtn.addEventListener("touchend", stopRecording);
 micBtn.addEventListener("mousedown", startRecording);
 micBtn.addEventListener("mouseup", stopRecording);
 micBtn.addEventListener("mouseleave", stopRecording);
+
+
+let cart=0;
+function add(){cart++;document.getElementById("count").innerText=cart;}
+
+const micBtn=document.getElementById("micBtn");
+const recordBar=document.getElementById("recordBar");
+const recordTime=document.getElementById("recordTime");
+const chat=document.getElementById("chat");
+
+let isRecording=false,seconds=0,timer,mediaRecorder,audioChunks=[],speechText="";
+
+micBtn.addEventListener("mousedown",start);
+micBtn.addEventListener("mouseup",stop);
+micBtn.addEventListener("touchstart",start,{passive:false});
+micBtn.addEventListener("touchend",stop);
+
+async function start(e){
+ e.preventDefault();
+ if(isRecording)return;
+ isRecording=true;seconds=0;recordTime.textContent="0:00";
+ recordBar.classList.add("show");micBtn.classList.add("recording");
+ timer=setInterval(()=>{seconds++;recordTime.textContent=`0:${seconds<10?"0"+seconds:seconds}`},1000);
+
+ const stream=await navigator.mediaDevices.getUserMedia({audio:true});
+ mediaRecorder=new MediaRecorder(stream);
+ audioChunks=[];
+ mediaRecorder.ondataavailable=e=>audioChunks.push(e.data);
+ mediaRecorder.start();
+
+ const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+ if(SR){
+  const rec=new SR();
+  rec.lang="uz-UZ";
+  rec.onresult=e=>speechText=e.results[0][0].transcript.toLowerCase();
+  rec.start();
+ }
+}
+
+function stop(){
+ if(!isRecording)return;
+ isRecording=false;clearInterval(timer);
+ recordBar.classList.remove("show");micBtn.classList.remove("recording");
+ recordTime.textContent="0:00";
+ mediaRecorder.stop();
+ mediaRecorder.onstop=()=>{
+  const blob=new Blob(audioChunks,{type:"audio/webm"});
+  const url=URL.createObjectURL(blob);
+  const msg=document.createElement("div");
+  msg.className="voice-message";
+  msg.innerHTML=`<audio controls src="${url}"></audio><div>${speechText||"Ovozli xabar"}</div>`;
+  chat.appendChild(msg);
+  if(speechText.includes("fairy")) add();
+  speechText="";
+ }
+}
+
