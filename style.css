@@ -405,24 +405,24 @@ body {
   padding: 6px 10px;
 }
 
-.search-box input {
-  flex: 1;
-  border: none;
-  background: transparent;
-  padding: 10px;
-  font-size: 14px;
-  outline: none;
-}
-
 .mic {
   border: none;
   background: none;
-  font-size: 22px;
-  cursor: pointer;
   padding: 6px;
-  transition: transform 0.15s ease;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.mic:active {
+.mic-icon {
+  width: 22px;
+  height: 22px;
+  fill: #8e8e93; /* Telegram iOS rang */
+  transition: transform 0.15s ease, fill 0.15s ease;
+}
+
+.mic:active .mic-icon {
   transform: scale(0.85);
+  fill: #007aff; /* Telegram ko‘k */
 }
