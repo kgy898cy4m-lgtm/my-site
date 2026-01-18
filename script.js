@@ -2,7 +2,6 @@
  * SAVAT
  *****************/
 let cart = 0;
-
 function add() {
   cart++;
   const count = document.getElementById("count");
@@ -13,22 +12,26 @@ function add() {
  * BURGER MENU
  *****************/
 function openMenu() {
-  document.getElementById("menu")?.classList.add("open");
-  document.getElementById("overlay")?.classList.add("show");
+  const menu = document.getElementById("menu");
+  const overlay = document.getElementById("overlay");
+  if (menu) menu.classList.add("open");
+  if (overlay) overlay.classList.add("show");
 }
 
 function closeMenu() {
-  document.getElementById("menu")?.classList.remove("open");
-  document.getElementById("overlay")?.classList.remove("show");
+  const menu = document.getElementById("menu");
+  const overlay = document.getElementById("overlay");
+  if (menu) menu.classList.remove("open");
+  if (overlay) overlay.classList.remove("show");
 }
 
 /*****************
- * SERVER TANLASH
+ * SERVER ACTIVE
  *****************/
-document.querySelectorAll(".service").forEach(s => {
+const servers = document.querySelectorAll(".service");
+servers.forEach(s => {
   s.addEventListener("click", () => {
-    document.querySelectorAll(".service")
-      .forEach(x => x.classList.remove("active"));
+    servers.forEach(x => x.classList.remove("active"));
     s.classList.add("active");
   });
 });
@@ -60,13 +63,15 @@ function startRecording(e) {
   isRecording = true;
   seconds = 0;
 
-  recordTime.innerText = "0:00";
-  recTimer.classList.add("active");
+  if (recordTime) recordTime.innerText = "0:00";
+  if (recTimer) recTimer.classList.add("active");
   micBtn.classList.add("recording");
 
   timer = setInterval(() => {
     seconds++;
-    recordTime.innerText = 0:${seconds < 10 ? "0" + seconds : seconds};
+    if (recordTime) {
+      recordTime.innerText = 0:${seconds < 10 ? "0" + seconds : seconds};
+    }
   }, 1000);
 }
 
@@ -76,7 +81,7 @@ function stopRecording() {
   isRecording = false;
   clearInterval(timer);
 
-  recTimer.classList.remove("active");
+  if (recTimer) recTimer.classList.remove("active");
   micBtn.classList.remove("recording");
-  recordTime.innerText = "0:00";
+  if (recordTime) recordTime.innerText = "0:00";
 }
