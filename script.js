@@ -44,3 +44,8 @@ function startVoice() {
     alert("Ovoz aniqlanmadi");
   };
 }
+
+  recognition.onerror = function () {
+    alert("Ovoz aniqlanmadi");
+  };
+}
