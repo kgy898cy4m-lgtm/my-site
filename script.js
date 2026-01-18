@@ -1,46 +1,57 @@
-/* ================= CART ================= */
+/*****************
+ * SAVAT
+ *****************/
 let cart = 0;
 function add() {
   cart++;
-  document.getElementById("count").innerText = cart;
+  const count = document.getElementById("count");
+  if (count) count.innerText = cart;
 }
 
-/* ================= ELEMENTS ================= */
+/*****************
+ * MICROPHONE + TIMER
+ *****************/
 const micBtn = document.getElementById("micBtn");
-const recordBar = document.getElementById("recTimer"); // CSS/HTML bilan mos
+const recTimer = document.getElementById("recTimer");
 const recordTime = document.getElementById("recordTime");
 const chat = document.getElementById("chat");
 
-/* ================= STATE ================= */
 let isRecording = false;
 let seconds = 0;
 let timer = null;
-
 let mediaRecorder = null;
 let audioChunks = [];
-
-let speechRec = null;
 let speechText = "";
 
-/* ================= START RECORD ================= */
+/* EVENTLAR */
+micBtn.addEventListener("mousedown", startRecording);
+micBtn.addEventListener("mouseup", stopRecording);
+micBtn.addEventListener("mouseleave", stopRecording);
+
+micBtn.addEventListener("touchstart", startRecording, { passive: false });
+micBtn.addEventListener("touchend", stopRecording);
+
+/*****************
+ * START RECORD
+ *****************/
 async function startRecording(e) {
   e.preventDefault();
   if (isRecording) return;
 
   isRecording = true;
   seconds = 0;
-  recordTime.textContent = "0:00";
+  recordTime.innerText = "0:00";
 
+  recTimer.classList.add("active");
   micBtn.classList.add("recording");
-  recordBar.classList.add("active");
 
-  /* TIMER */
+  // TIMER
   timer = setInterval(() => {
     seconds++;
-    recordTime.textContent = 0:${seconds < 10 ? "0" + seconds : seconds};
+    recordTime.innerText = 0:${seconds < 10 ? "0" + seconds : seconds};
   }, 1000);
 
-  /* AUDIO RECORD */
+  // AUDIO
   const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
   mediaRecorder = new MediaRecorder(stream);
   audioChunks = [];
@@ -48,65 +59,59 @@ async function startRecording(e) {
   mediaRecorder.ondataavailable = e => audioChunks.push(e.data);
   mediaRecorder.start();
 
-  /* SPEECH TO TEXT */
+  // SPEECH → TEXT
   const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
   if (SR) {
-    speechRec = new SR();
-    speechRec.lang = "uz-UZ";
-    speechRec.onresult = e => {
+    const recog = new SR();
+    recog.lang = "uz-UZ";
+    recog.onresult = e => {
       speechText = e.results[0][0].transcript.toLowerCase();
     };
-    speechRec.start();
+    recog.start();
   }
 }
 
-/* ================= STOP RECORD ================= */
+/*****************
+ * STOP RECORD
+ *****************/
 function stopRecording() {
   if (!isRecording) return;
 
   isRecording = false;
   clearInterval(timer);
-  timer = null;
 
+  recTimer.classList.remove("active");
   micBtn.classList.remove("recording");
-  recordBar.classList.remove("active");
-  recordTime.textContent = "0:00";
+  recordTime.innerText = "0:00";
 
-  if (speechRec) {
-    speechRec.stop();
-    speechRec = null;
-  }
+  if (!mediaRecorder) return;
 
   mediaRecorder.stop();
-
   mediaRecorder.onstop = () => {
     const blob = new Blob(audioChunks, { type: "audio/webm" });
     const url = URL.createObjectURL(blob);
 
-    const msg = document.createElement("div");
-    msg.className = "voice-message";
-    msg.innerHTML = `
-      <audio controls src="${url}"></audio>
-      <div class="voice-text">${speechText || "Ovozli xabar"}</div>
-    `;
+    showVoiceMessage(url, speechText);
 
-    chat.appendChild(msg);
-    chat.scrollTop = chat.scrollHeight;
-
-    if (speechText.includes("fairy")) {
-      add();
-    }
+    // OVOZ BUYRUQLARI
+    if (speechText.includes("fairy")) add();
 
     speechText = "";
   };
 }
 
-/* ================= EVENTS ================= */
-/* Mobile */
-micBtn.addEventListener("touchstart", startRecording, { passive: false });
-micBtn.addEventListener("touchend", stopRecording);
+/*****************
+ * CHATGA QO‘SHISH
+ *****************/
+function showVoiceMessage(audioUrl, text) {
+  if (!chat) return;
 
-/* Desktop */
-micBtn.addEventListener("mousedown", startRecording);
-micBtn.addEventListener("mouseup", stopRecording);
-micBtn.addEventListener("mouseleave", stopRecording);
+  const msg = document.createElement("div");
+  msg.className = "voice-message";
+  msg.innerHTML = `
+    <audio controls src="${audioUrl}"></audio>
+    <div class="voice-text">${text || "🎤 Ovozli xabar"}</div>
+  `;
+  chat.appendChild(msg);
+  chat.scrollTop = chat.scrollHeight;
+}
