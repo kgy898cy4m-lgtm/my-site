@@ -25,3 +25,22 @@ servers.forEach(server => {
     server.classList.add("active");
   });
 });
+function startVoice() {
+  if (!('webkitSpeechRecognition' in window)) {
+    alert("Brauzer ovozli qidirishni qo‘llab-quvvatlamaydi");
+    return;
+  }
+
+  const recognition = new webkitSpeechRecognition();
+  recognition.lang = "uz-UZ"; // rus bo‘lsa: ru-RU
+  recognition.start();
+
+  recognition.onresult = function (event) {
+    const text = event.results[0][0].transcript;
+    document.getElementById("searchInput").value = text;
+  };
+
+  recognition.onerror = function () {
+    alert("Ovoz aniqlanmadi");
+  };
+}
