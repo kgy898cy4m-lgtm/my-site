@@ -49,3 +49,11 @@ function startVoice() {
     alert("Ovoz aniqlanmadi");
   };
 }
+function startVoice() {
+  const mic = document.querySelector('.mic-icon');
+  mic.style.fill = '#ff3b30'; // qizil
+
+  setTimeout(() => {
+    mic.style.fill = '#000';
+  }, 2000);
+}
