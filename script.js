@@ -25,35 +25,44 @@ servers.forEach(server => {
     server.classList.add("active");
   });
 });
+let recognition;
+let isRecording = false;
+
 function startVoice() {
   if (!('webkitSpeechRecognition' in window)) {
-    alert("Brauzer ovozli qidirishni qo‘llab-quvvatlamaydi");
+    alert("Brauzer ovoz qidirishni qo‘llab-quvvatlamaydi");
     return;
   }
 
-  const recognition = new webkitSpeechRecognition();
-  recognition.lang = "uz-UZ"; // rus bo‘lsa: ru-RU
-  recognition.start();
+  if (!recognition) {
+    recognition = new webkitSpeechRecognition();
+    recognition.lang = 'uz-UZ';
+    recognition.continuous = false;
+    recognition.interimResults = false;
 
-  recognition.onresult = function (event) {
-    const text = event.results[0][0].transcript;
-    document.getElementById("searchInput").value = text;
-  };
+    recognition.onresult = (event) => {
+      const text = event.results[0][0].transcript;
+      document.getElementById('searchInput').value = text;
+      filterProducts(text);
+    };
 
-  recognition.onerror = function () {
-    alert("Ovoz aniqlanmadi");
-  };
+    recognition.onend = () => {
+      stopRecording();
+    };
+  }
+
+  if (!isRecording) {
+    recognition.start();
+    startRecording();
+  }
 }
 
-  recognition.onerror = function () {
-    alert("Ovoz aniqlanmadi");
-  };
+function startRecording() {
+  isRecording = true;
+  document.querySelector('.mic-btn').classList.add('recording');
 }
-function startVoice() {
-  const mic = document.querySelector('.mic-icon');
-  mic.style.fill = '#ff3b30'; // qizil
 
-  setTimeout(() => {
-    mic.style.fill = '#000';
-  }, 2000);
+function stopRecording() {
+  isRecording = false;
+  document.querySelector('.mic-btn').classList.remove('recording');
 }
