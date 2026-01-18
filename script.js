@@ -66,3 +66,13 @@ function stopRecording() {
   isRecording = false;
   document.querySelector('.mic-btn').classList.remove('recording');
 }
+function haptic() {
+  if (window.Telegram?.WebApp?.HapticFeedback) {
+    Telegram.WebApp.HapticFeedback.impactOccurred('medium');
+  }
+}
+function haptic() {
+  if (window.Telegram?.WebApp?.HapticFeedback) {
+    Telegram.WebApp.HapticFeedback.impactOccurred('medium');
+  }
+}
