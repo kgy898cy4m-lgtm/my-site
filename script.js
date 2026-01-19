@@ -187,3 +187,28 @@ function limitChatMessages() {
     msgs[0].remove(); // eng eskisini o‘chiramiz
   }
 }
+.voice-message.telegram {
+  background: #dcf8c6;
+  border-radius: 14px;
+  padding: 8px 10px;
+  margin: 6px 0;
+  max-width: 260px;
+}
+
+.voice-message.telegram audio {
+  width: 100%;
+  height: 32px;
+}
+
+.voice-meta {
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+  font-size: 11px;
+  color: #555;
+  margin-top: 4px;
+}
+
+.voice-meta .ticks {
+  color: #4fc3f7; /* telegram ko‘k ptichka */
+}
