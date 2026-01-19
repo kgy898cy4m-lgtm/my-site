@@ -106,9 +106,6 @@ async function startRecording(e) {
   mediaRecorder.ondataavailable = e => audioChunks.push(e.data);
   mediaRecorder.onstop = onRecordStop;
   mediaRecorder.start();
-
-  // SPEECH
-  if (recognition) recognition.start();
 }
 
 /*****************
