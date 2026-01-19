@@ -66,14 +66,14 @@ function startRecording(e) {
   if (recordTime) recordTime.innerText = "0:00";
   if (recTimer) recTimer.classList.add("active");
   micBtn.classList.add("recording");
- timer = setInterval(() => {
-  seconds++;
-  if (recordTime) {
-    recordTime.innerText = 0:${seconds < 10 ? "0" + seconds : seconds};
-  }
-}, 1000);
-}
 
+  timer = setInterval(() => {
+    seconds++;
+    if (recordTime) {
+      recordTime.innerText = '0:${seconds < 10 ? "0" + seconds : seconds}';
+    }
+  }, 1000);
+}
 function stopRecording() {
   if (!isRecording) return;
 
