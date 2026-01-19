@@ -127,19 +127,6 @@ body {
   text-decoration: none;
   border-bottom: 1px solid #eee;
 }
-
-/* SEARCH */
-.search {
-  padding: 10px;
-}
-.search input {
-  width: 100%;
-  padding: 12px;
-  border-radius: 25px;
-  border: none;
-  background: #eee;
-}
-
 /* BANNER */
 .banner {
   margin: 10px;
@@ -215,7 +202,48 @@ body {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+.chat-wrapper {
+  margin: 12px;
+  padding: 8px;
+  background: #f2f2f2;
+  border-radius: 16px;
+}
 
+/* CHAT O‘ZI */
+.chat {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  max-height: 160px;   /* 🔴 FAQAT 2–3 TA AUDIO */
+  overflow-y: auto;    /* 🔽 qolganlari scroll */
+}
+
+/* OVOZ XABAR */
+.voice-message {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  background: #dcf8c6; /* Telegram green */
+  padding: 10px 12px;
+  border-radius: 14px;
+
+  width: 100%;         /* 🔹 gorizontal uzun */
+  max-width: 100%;
+}
+
+/* AUDIO */
+.voice-message audio {
+  width: 160px;
+  height: 28px;
+}
+
+/* TEXT */
+.voice-text {
+  font-size: 13px;
+  color: #333;
+}
 /* PRODUCTS */
 .products {
   display: grid;
@@ -382,17 +410,6 @@ body {
 body {
   padding-bottom: calc(80px + env(safe-area-inset-bottom));
 }
-/* SEARCH + MIC */
-.search-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.search-row input {
-  flex: 1;
-}
-
 /* MIC BUTTON */
 .mic-btn {
   width: 48px;
