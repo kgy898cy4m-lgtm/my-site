@@ -70,7 +70,7 @@ function startRecording(e) {
   timer = setInterval(() => {
     seconds++;
     if (recordTime) {
-      recordTime.innerText = '0:${seconds < 10 ? "0" + seconds : seconds}';
+      recordTime.innerText = `0:${seconds < 10 ? "0" + seconds : seconds}`;
     }
   }, 1000);
 }
