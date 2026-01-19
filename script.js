@@ -125,28 +125,39 @@ function stopRecording() {
     mediaRecorder.stop();
   }
 }
-
+function getTime() {
+  const d = new Date();
+  const h = String(d.getHours()).padStart(2, "0");
+  const m = String(d.getMinutes()).padStart(2, "0");
+  return ${h}:${m};
+}
 /*****************
  * AFTER RECORD
  *****************/
 function onRecordStop() {
   const blob = new Blob(audioChunks, { type: "audio/webm" });
   const url = URL.createObjectURL(blob);
+  const time = getTime();
 
   if (chat) {
     const msg = document.createElement("div");
-    msg.className = "voice-message";
+    msg.className = "voice-message telegram";
+
     msg.innerHTML = `
-      <audio controls src="${url}"></audio>
-      <div class="voice-text">${speechText || "🎤 Ovozli xabar"}</div>
+      <audio src="${url}" controls></audio>
+      <div class="voice-meta">
+        <span class="time">${time}</span>
+        <span class="ticks">✓✓</span>
+      </div>
     `;
+
     chat.appendChild(msg);
+    limitChatMessages();
     chat.scrollTop = chat.scrollHeight;
   }
 
   speechText = "";
 }
-
 /*****************
  * VOICE COMMANDS
  *****************/
@@ -169,4 +180,10 @@ function filterProducts(word) {
     card.style.display = name.
 includes(word) ? "block" : "none";
   });
+}
+function limitChatMessages() {
+  const msgs = document.querySelectorAll(".voice-message");
+  if (msgs.length > 2) {
+    msgs[0].remove(); // eng eskisini o‘chiramiz
+  }
 }
