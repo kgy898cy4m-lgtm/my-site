@@ -32,7 +32,26 @@ document.querySelectorAll(".service").forEach(server => {
     server.classList.add("active");
   });
 });
+function filterProductsByServer(serverId) {
+  document.querySelectorAll(".card").forEach(card => {
+    const productServer = card.dataset.server;
+    card.style.display = productServer === serverId ? "block" : "none";
+  });
+}
+const servers = document.querySelectorAll(".service");
 
+servers.forEach(s => {
+  s.addEventListener("click", () => {
+    servers.forEach(x => x.classList.remove("active"));
+    s.classList.add("active");
+
+    const serverId = s.querySelector("b").innerText;
+    filterProductsByServer(serverId);
+  });
+});
+document.addEventListener("DOMContentLoaded", () => {
+  filterProductsByServer("1");
+});
 /*****************
  * MICROPHONE + TIMER + AUDIO + SPEECH
  *****************/
