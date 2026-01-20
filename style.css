@@ -544,6 +544,11 @@ body {
   margin: 6px 0;
 }
 
+
+  .hidden {
+  display: none;
+}
+
 .text-message .bubble {
   background: #dcf8c6;
   padding: 8px 10px;
