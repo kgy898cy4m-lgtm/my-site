@@ -24,12 +24,22 @@ function closeMenu() {
 /*****************
  * SERVER ACTIVE
  *****************/
-document.querySelectorAll(".service").forEach(server => {
-  server.addEventListener("click", () => {
-    document
-      .querySelectorAll(".service")
-      .forEach(s => s.classList.remove("active"));
-    server.classList.add("active");
+const servers = document.querySelectorAll(".service");
+
+servers.forEach(s => {
+  s.addEventListener("click", () => {
+    servers.forEach(x => x.classList.remove("active"));
+    s.classList.add("active");
+
+    const serverId = s.querySelector("b").innerText;
+
+    document.querySelectorAll(".card").forEach(card => {
+      if (serverId === "1") {
+        card.style.display = "block"; // faqat Server1
+      } else {
+        card.style.display = "none";  // qolgan serverlarda yo‘q
+      }
+    });
   });
 });
 function filterProductsByServer(serverId) {
