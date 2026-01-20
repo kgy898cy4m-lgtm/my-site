@@ -605,13 +605,3 @@ body {
   border-radius: 50%;
   font-size: 18px;
 }
-
-.mic-btn {
-  background: red;
-  color: #fff;
-  border: none;
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  font-size: 18px;
-}
