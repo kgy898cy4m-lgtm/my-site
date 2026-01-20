@@ -214,7 +214,6 @@ body {
   display: flex;
   flex-direction: column;
   gap: 8px;
-
   max-height: 160px;   /* 🔴 FAQAT 2–3 TA AUDIO */
   overflow-y: auto;    /* 🔽 qolganlari scroll */
 }
@@ -414,7 +413,7 @@ body {
 .mic-btn {
   width: 56px;
   height: 56px;
-  border-radius: 50%;          /* to‘liq yumaloq */
+  border-radius: 40%;          /* to‘liq yumaloq */
   background-color: #ff3b30;   /* 🔴 iOS-style qizil */
 
   display: flex;
