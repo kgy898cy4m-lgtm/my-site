@@ -411,8 +411,8 @@ body {
 }
 /* MIC BUTTON */
 .mic-btn {
-  width: 56px;
-  height: 56px;
+  width: 40px;
+  height: 40px;
   border-radius: 40%;          /* to‘liq yumaloq */
   background-color: #ff3b30;   /* 🔴 iOS-style qizil */
 
