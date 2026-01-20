@@ -189,6 +189,22 @@ function sendTextMessage() {
       </div>
     </div>
   `;
+  sendBtn.addEventListener("click", sendText);
+input.addEventListener("keydown", e => {
+  if (e.key === "Enter") sendText();
+});
+
+function sendText() {
+  const text = input.value.trim();
+  if (!text) return;
+
+  sendTextMessage(text);
+  input.value = "";
+
+  // 🔁 qayta mic ko‘rsin
+  sendBtn.classList.add("hidden");
+  micBtn.classList.remove("hidden");
+}
 
   chat.appendChild(msg);
   limitChatMessages();
