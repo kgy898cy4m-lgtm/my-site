@@ -170,6 +170,33 @@ function handleVoiceCommand(text) {
 
   filterProducts(text);
 }
+const textInput = document.getElementById("textInput");
+const sendBtn = document.getElementById("sendBtn");
+function sendTextMessage() {
+  const text = textInput.value.trim();
+  if (!text || !chat) return;
+
+  const time = getTime();
+
+  const msg = document.createElement("div");
+  msg.className = "text-message telegram";
+  msg.innerHTML = `
+    <div class="bubble">
+      ${text}
+      <div class="meta">
+        <span class="time">${time}</span>
+        <span class="checks">✔✔</span>
+      </div>
+    </div>
+  `;
+
+  chat.appendChild(msg);
+  limitChatMessages();
+  chat.scrollTop = chat.scrollHeight;
+
+  textInput.value = "";
+}
+
 
 /*****************
  * PRODUCT FILTER
