@@ -249,3 +249,8 @@ function limitChatMessages() {
     msgs[0].remove(); // eng eskisini o‘chiramiz
   }
 }
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".card").forEach(card => {
+    card.style.display = "none";
+  });
+});
