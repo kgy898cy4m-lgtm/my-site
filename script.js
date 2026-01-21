@@ -177,7 +177,7 @@ const msg = document.createElement("div");
  * CHAT LIMIT
  *****************/
 function limitChat() {
-  while (chat.children.length > 2) {
+  while (chat.children.length > 4) {
     chat.removeChild(chat.firstChild);
   }
 }
