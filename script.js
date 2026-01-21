@@ -169,15 +169,5 @@ const msg = document.createElement("div");
   `;
 
   chat.appendChild(msg);
-  limitChat();
   chat.scrollTop = chat.scrollHeight;
-}
-
-/*****************
- * CHAT LIMIT
- *****************/
-function limitChat() {
-  while (chat.children.length > 2) {
-    chat.removeChild(chat.firstChild);
-  }
 }
