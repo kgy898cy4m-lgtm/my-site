@@ -413,7 +413,7 @@ body {
 .mic-btn {
   width: 40px;
   height: 40px;
-  border-radius: 40%;          /* to‘liq yumaloq */
+  border-radius: 50%;          /* to‘liq yumaloq */
   background-color: #ff3b30;   /* 🔴 iOS-style qizil */
 
   display: flex;
