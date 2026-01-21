@@ -411,17 +411,17 @@ body {
 }
 /* MIC BUTTON */
 .mic-btn {
-  width: 40px;
-  height: 40px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;          /* to‘liq yumaloq */
   background-color: #ff3b30;   /* 🔴 iOS-style qizil */
 
   display: flex;
   align-items: center;
   justify-content: center;
-
   border: none;
   padding: 0;
+  flex-shrink: 0;
 }
 .mic-btn svg {
   width: 22px;
@@ -579,8 +579,8 @@ body {
   background: #fff;
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 10px;
+  gap: 10px;
+  padding: 10px 12px;
   border-top: 1px solid #ddd;
   z-index: 999;
 }
@@ -589,10 +589,10 @@ body {
   flex: 1;
   border: none;
   background: #f1f1f1;
-  padding: 10px 14px;
-  border-radius: 20px;
+  padding: 0px 16px;
+  border-radius: 24px;
   outline: none;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 .send-btn {
